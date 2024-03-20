@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Edit Profile</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav') %>
+        <div class="container mt-3">
+
+            <form action="/user/edit-profile" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Updated FullName</label>
+                    <input type="text" class="form-control" id="fullName" name="fullName" />
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Updated Email </label>
+                    <input type="email" class="form-control" id="email" name="email" />
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="profileImageUrl" class="form-label">Profile Image</label>
+                    <input type="file" class="form-control" id="profileImageUrl" name="profileImageUrl"
+                        aria-describedby="profileImageUrl">
+
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-secondary  me-5">Submit</button>
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                </div>
+
+
+            </form>
+
+        </div>
+
+        <%- include('./partials/script') %>
+
+</body>
+
+</html>
