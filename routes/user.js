@@ -53,14 +53,13 @@ router.post('/signup', async (req, res) => {
 
 router.post("/edit-profile", upload.single('profileImageUrl'), async (req, res) => {
 
-    // Delete functionality
+    // Delete functionality added afterwards
     if (!req.body.email && !req.body.fullName) {
-
         id = req.cookies.user_id
         await User.findByIdAndDelete(id)
         await Blog.findOneAndDelete({ createdBy: id });
         await Comment.findOneAndDelete({ createdBy: id });
-        return res.clearCookie('token', 'user_id').redirect("/")
+        return res.clearCookie('token', 'user_id').redirect("/");
     }
 
     // Update functionality
